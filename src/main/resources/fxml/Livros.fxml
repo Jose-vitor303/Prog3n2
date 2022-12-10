@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="659.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.LivroController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="703.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.LivroController">
    <children>
-      <AnchorPane layoutY="-1.0" prefHeight="101.0" prefWidth="659.0" style="-fx-background-color: #4d5463;">
+      <AnchorPane layoutY="-1.0" prefHeight="93.0" prefWidth="703.0" style="-fx-background-color: #4d5463;">
          <children>
             <Label layoutX="35.0" layoutY="23.0" prefHeight="56.0" prefWidth="368.0" text="Livros Cadastrados " textFill="WHITE">
                <font>
@@ -21,9 +21,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="14.0" layoutY="111.0" prefHeight="339.0" prefWidth="334.0" style="-fx-border-color: gray;">
+      <AnchorPane layoutX="8.0" layoutY="111.0" prefHeight="339.0" prefWidth="432.0" style="-fx-border-color: gray;">
          <children>
-            <TableView fx:id="tabelaLivros" layoutX="11.0" layoutY="45.0" prefHeight="277.0" prefWidth="309.0">
+            <TableView fx:id="tabelaLivros" layoutX="17.0" layoutY="42.0" onKeyPressed="#keyLivro" onMouseClicked="#clickLivro" prefHeight="283.0" prefWidth="398.0" style="-fx-border-color: grey;">
               <columns>
                 <TableColumn fx:id="colid" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="colTitulo" prefWidth="88.0" text="TITULO" />
@@ -33,15 +33,17 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Button layoutX="23.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Atualizar Tabela" />
+            <Button layoutX="17.0" layoutY="8.0" mnemonicParsing="false" onAction="#atualizarTabela" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: blue;" text="Atualizar Tabela" textFill="WHITE" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="382.0" layoutY="111.0" prefHeight="339.0" prefWidth="253.0" style="-fx-border-color: gray;">
+      <AnchorPane layoutX="449.0" layoutY="111.0" prefHeight="339.0" prefWidth="242.0" style="-fx-border-color: gray;">
          <children>
-            <TextField fx:id="txtTitulo" layoutX="19.0" layoutY="60.0" prefHeight="25.0" prefWidth="206.0" text="Titulo" />
-            <ComboBox fx:id="choiceAutor" layoutX="24.0" layoutY="157.0" prefHeight="25.0" prefWidth="206.0" />
-            <Button layoutX="19.0" layoutY="300.0" mnemonicParsing="false" onAction="#btnGravar" prefHeight="25.0" prefWidth="216.0" style="-fx-background-color: black;" text="Gravar" textFill="WHITE" />
-            <Button layoutX="19.0" layoutY="268.0" mnemonicParsing="false" onAction="#btnInserir" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: green;" text="Inserir" textFill="WHITE" />
+            <TextField fx:id="txtTitulo" layoutX="19.0" layoutY="60.0" prefHeight="25.0" prefWidth="206.0" promptText="Titulo" />
+            <ComboBox fx:id="choiceAutor" layoutX="24.0" layoutY="157.0" prefHeight="25.0" prefWidth="206.0" promptText="Autores" />
+            <Button fx:id="buttonGravar" layoutX="12.0" layoutY="300.0" mnemonicParsing="false" onAction="#gravarLivro" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: black;" text="Gravar" textFill="WHITE" />
+            <Button fx:id="buttonInserir" layoutX="14.0" layoutY="268.0" mnemonicParsing="false" onAction="#inserirLivro" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: green;" text="Inserir" textFill="WHITE" />
+            <Button fx:id="buttonAlterar" layoutX="94.0" layoutY="268.0" mnemonicParsing="false" onAction="#alterarLivro" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: #FFC312;" text="Alterar" textFill="WHITE" />
+            <Button fx:id="buttonDeletar" layoutX="169.0" layoutY="268.0" mnemonicParsing="false" onAction="#deletarLivro" prefHeight="25.0" prefWidth="66.0" style="-fx-background-color: red; -fx-border-radius: none;" text="Deletar" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>

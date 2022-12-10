@@ -9,12 +9,12 @@ public class DaoAluno extends Dao<Aluno>{
 
     public List<Aluno> buscarTodos(){
 
-        return em.createQuery("select A from Aluno A").getResultList(); 
+        return em.createQuery("select a from Aluno a").getResultList(); 
     
     }
 
     public List<Aluno> buscarTodosPorId() {
-        return em.createQuery("select A from Aluno A order by A.nome").getResultList();
+        return em.createQuery("select a from Aluno a order by a.id").getResultList();
     }
     
 }

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
 
 import br.edu.femass.dao.DaoAutor;
 import br.edu.femass.model.Autor;
@@ -66,7 +67,7 @@ public class AutoresCadastradosController implements Initializable{
     @FXML
     public void atualizarTabela(){//Ok
         
-        List<Autor> autores = dao.buscarTodos();
+        List<Autor> autores = dao.buscarTodosPorId();
 
         ObservableList<Autor> data = FXCollections.observableArrayList(autores);
 
@@ -75,7 +76,7 @@ public class AutoresCadastradosController implements Initializable{
 
     public void preencherTabela(){//Ok
         
-        List<Autor> autores = dao.buscarTodosPorId();
+        List<Autor> autores = dao.buscarTodos();
 
         ObservableList<Autor> data = FXCollections.observableArrayList(autores);
 
@@ -88,7 +89,12 @@ public class AutoresCadastradosController implements Initializable{
 
         autor = tabela.getSelectionModel().getSelectedItem();
 
-        dao.apagar(autor);
+        try {
+            dao.apagar(autor);         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Primeiro remova o livro relacionado ao autor");
+        }
+   
         preencherTabela();
 
     }

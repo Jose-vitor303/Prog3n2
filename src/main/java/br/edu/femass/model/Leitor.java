@@ -10,7 +10,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)//Cria uma tabela para cada classe subclasse e superclasse
-public class Leitor {
+public class Leitor {//Ok
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,6 +51,29 @@ public class Leitor {
     public void setPrazoMaximoDevolucao(Integer prazoMaximoDevolucao) {
         this.prazoMaximoDevolucao = prazoMaximoDevolucao;
     }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String toString(){
+
+        return this.nome;
+    }
+
+    
 
 
 

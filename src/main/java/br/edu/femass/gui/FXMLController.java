@@ -79,7 +79,7 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
-    public void emprestimos(){
+    public void emprestimosCadastrados(){
 
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Emprestimo.fxml"));
@@ -96,6 +96,25 @@ public class FXMLController implements Initializable {
            System.out.println(e.getMessage());
         }
 
+    }
+
+    @FXML
+    public void exemplaresCadastrados(){
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Exemplar.fxml"));
+
+            Parent root2 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+
+            stage.setTitle("Exemplares");
+            stage.setScene(new Scene(root2));
+
+            stage.show();
+            
+        } catch (Exception e) {
+           System.out.println(e.getMessage());
+        }
     }
     
     @Override

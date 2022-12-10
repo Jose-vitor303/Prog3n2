@@ -8,26 +8,33 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
-// @Entity
-public class Emprestimo {
+import net.bytebuddy.asm.Advice.Local;
 
-    // @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    // @ManyToOne(cascade = CascadeType.ALL)
+@Entity
+public class Emprestimo { //Ok 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(cascade = CascadeType.ALL)
     private Leitor leitor;
 
-    // @ManyToOne(cascade = { CascadeType.ALL })
+    @ManyToOne(cascade = { CascadeType.ALL })
     private Exemplar exemplar;
     
     private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataDevolucao;
+
+    private Boolean atrasado;
     
 
     public Emprestimo(){
+
+        this.dataEmprestimo = LocalDate.now();      
        
     }
 
@@ -36,7 +43,7 @@ public class Emprestimo {
         this.exemplar = exemplar;
         this.leitor = leitor;
         this.dataEmprestimo = LocalDate.now();
-        this.dataDevolucao = LocalDate.now().plusDays(leitor.getPrazoMaximoDevolucao());
+        this.dataPrevistaDevolucao = LocalDate.now().plusDays(leitor.getPrazoMaximoDevolucao());
     }
     
     public LocalDate getDataDevolucao() {
@@ -51,6 +58,44 @@ public class Emprestimo {
         return dataPrevistaDevolucao;
     }
 
+    public Exemplar getExemplar() {
+        return exemplar;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Leitor getLeitor() {
+        return leitor;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean emprestimosAtrasado() {
+        return this.getDataPrevistaDevolucao().isBefore(LocalDate.now());
+        // return this.getDataPrevistaDevolucao().isBefore(LocalDate.of(2023, 1, 2));
+    }
+    
+    public void setAtrasado(Boolean atrasado) {
+        this.atrasado = atrasado;
+    }
+
+    public Boolean getAtrasado() {
+        return atrasado;
+    }
+
+
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public void setDataPrevistaDevolucao(LocalDate dataPrevistaDevolucao) {
+        this.dataPrevistaDevolucao = dataPrevistaDevolucao;
+    }
+
     public void setDataDevolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
     }
@@ -58,7 +103,14 @@ public class Emprestimo {
     public void realizarDevolucao(){
         this.setDataDevolucao(LocalDate.now());
     }
+    
+    public void setExemplar(Exemplar exemplar) {
+        this.exemplar = exemplar;
+    }
 
+    public void setLeitor(Leitor leitor) {
+        this.leitor = leitor;
+    }
 
     public String toString(){
         return "Data Emprestimo - " + this.getDataEmprestimo() + "\n"

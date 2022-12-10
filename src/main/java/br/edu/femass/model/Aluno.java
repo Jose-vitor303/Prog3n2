@@ -1,9 +1,10 @@
 package br.edu.femass.model;
 
 import javax.persistence.Entity;
+import javax.print.DocFlavor.STRING;
 
 @Entity
-public class Aluno extends Leitor{
+public class Aluno extends Leitor{//Ok
     
     private String matricula;
 
@@ -12,15 +13,28 @@ public class Aluno extends Leitor{
 
         super(nome, endereco, telefone);
         this.matricula = matricula;
-        setPrazoMaximoDevolucao(15);
+      
     }
 
     public Aluno(){
-
+        this.prazoMaximoDevolucao = 15;
+        
     }
-    
 
     public String getMatricula() {
         return matricula;
     }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public String toString(){
+        return this.nome;
+
+    }
+
+
+
+    
 }

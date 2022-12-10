@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Autor {
+public class Autor {//Ok
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +19,17 @@ public class Autor {
     private String nome;
     private String sobreNome;
     private String nacionalidade;
-
-    @OneToOne(cascade = { CascadeType.ALL })
-    private Livro livro;
-
    
     public Autor(){
 
+    }
+
+    public Autor(Long id, String nome, String sobreNome, String nacionalidade){
+
+        this.nome = nome;
+        this.sobreNome = sobreNome;
+        this.nacionalidade = nacionalidade;
+        
     }
 
     public Autor(String nome, String sobreNome, String nacionalidade){
@@ -63,7 +67,7 @@ public class Autor {
     }
 
     public String toString(){
-        return this.nome;
+        return this.nome + " " + this.sobreNome;
 
         
     }
