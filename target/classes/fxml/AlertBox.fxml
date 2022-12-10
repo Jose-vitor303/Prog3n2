@@ -3,9 +3,9 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlertBoxController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="108.0" prefWidth="554.0" style="-fx-background-color: #4d5463; -fx-border-color: gray;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.gui.AlertBoxController">
    <children>
-      <CheckBox layoutX="99.0" layoutY="49.0" mnemonicParsing="false" onAction="#professorSelecionado" text="Professor" />
-      <CheckBox layoutX="344.0" layoutY="49.0" mnemonicParsing="false" onAction="#alunoSelecionado" text="Aluno" />
+      <CheckBox layoutX="99.0" layoutY="49.0" mnemonicParsing="false" onAction="#professorSelecionado" text="Professor" textFill="WHITE" />
+      <CheckBox layoutX="344.0" layoutY="49.0" mnemonicParsing="false" onAction="#alunoSelecionado" text="Aluno" textFill="WHITE" />
    </children>
 </Pane>
