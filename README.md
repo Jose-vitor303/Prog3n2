@@ -2,7 +2,7 @@
 
 # Sobre o projeto 
 
-A aplicação consiste em um sistema de biblioteca, o gerenciador desse sistema é capaz de adicionar livros, leitores, emprestimos, autorese e exemplares.
+A aplicação consiste em um sistema de biblioteca, o gerenciador desse sistema é capaz de adicionar livros, leitores, emprestimos, autores e exemplares.
 
 # Tecnologias Utilizadas 
 
